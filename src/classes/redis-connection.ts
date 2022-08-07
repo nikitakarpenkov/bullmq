@@ -14,9 +14,7 @@ import {
 
 import * as path from 'path';
 
-import { URL } from 'url';
-
-const __dirname = new URL('.', import.meta.url).pathname;
+import dirname from 'es-dirname'
 
 const overrideMessage = [
   'BullMQ: WARNING! Your redis options maxRetriesPerRequest must be null',
@@ -160,7 +158,7 @@ export class RedisConnection extends EventEmitter {
       (<any>this._client)['bullmq:loadingCommands'] ||
       ((<any>this._client)['bullmq:loadingCommands'] = scriptLoader.load(
         this._client,
-        path.join(__dirname, '../commands'),
+        path.join(dirname(), '../commands'),
       ))
     );
   }
