@@ -5,7 +5,7 @@
 /*eslint-env node */
 'use strict';
 import { Packr } from 'msgpackr';
-import { dirname } from 'path';
+import { dirname as _dirname } from 'path';
 import { platform } from 'os'
 
 const packer = new Packr({
