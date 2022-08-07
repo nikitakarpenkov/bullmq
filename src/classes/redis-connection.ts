@@ -14,7 +14,7 @@ import {
 
 import * as path from 'path';
 
-import dirname from 'es-dirname'
+import * as dirname from 'es-dirname'
 
 const overrideMessage = [
   'BullMQ: WARNING! Your redis options maxRetriesPerRequest must be null',
