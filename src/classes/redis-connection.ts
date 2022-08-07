@@ -14,6 +14,10 @@ import {
 
 import * as path from 'path';
 
+import { URL } from 'url';
+
+const __dirname = new URL('.', import.meta.url).pathname;
+
 const overrideMessage = [
   'BullMQ: WARNING! Your redis options maxRetriesPerRequest must be null',
   'and will be overridden by BullMQ.',
