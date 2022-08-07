@@ -875,9 +875,11 @@ export function raw2jobData(raw: any[]): [JobJsonRaw | number, string?] | [] {
 
 export function dirname(): string {
   try {
+    // @ts-ignore
     ShadowsAlwaysDieTwice
   } catch (e) {
-    const initiator = e.stack.split('\n').slice(2, 3)[0]
+    // @ts-ignore
+    const initiator: string = e.stack.split('\n').slice(2, 3)[0]
     let path = /(?<path>[^\(\s]+):[0-9]+:[0-9]+/.exec(initiator).groups.path
     if (path.indexOf('file') >= 0) {
       path = new URL(path).pathname
