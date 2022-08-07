@@ -5,6 +5,8 @@
 /*eslint-env node */
 'use strict';
 import { Packr } from 'msgpackr';
+import { dirname } from 'path';
+import { platform } from 'os'
 
 const packer = new Packr({
   useRecords: false,
@@ -869,4 +871,21 @@ export function raw2jobData(raw: any[]): [JobJsonRaw | number, string?] | [] {
     }
   }
   return [];
+}
+
+export function dirname(): string {
+  try {
+    ShadowsAlwaysDieTwice
+  } catch (e) {
+    const initiator = e.stack.split('\n').slice(2, 3)[0]
+    let path = /(?<path>[^\(\s]+):[0-9]+:[0-9]+/.exec(initiator).groups.path
+    if (path.indexOf('file') >= 0) {
+      path = new URL(path).pathname
+    }
+    let dirname = _dirname(path)
+    if (dirname[0] === '/' && platform() === 'win32') {
+      dirname = dirname.slice(1)
+    }
+    return dirname
+  }
 }

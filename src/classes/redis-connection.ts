@@ -12,9 +12,9 @@ import {
   isRedisVersionLowerThan,
 } from '../utils';
 
-import * as path from 'path';
+import { dirname } from '../classes';
 
-import * as dirname from 'es-dirname'
+import * as path from 'path';
 
 const overrideMessage = [
   'BullMQ: WARNING! Your redis options maxRetriesPerRequest must be null',
